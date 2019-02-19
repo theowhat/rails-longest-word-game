@@ -1,2 +1,16 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+
+
+<div class="container">
+  <h1 class="title">New</h1>
+  <% @letters.each do |letter| %>
+    <span class="badge badge-primary"><%= letter %></span>
+  <% end %>
+
+<form action="/score" method="post" class="form-inline">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :grid, @letters %>
+  <input type="text" name="words">
+  <input type="submit">
+</form>
+</div>
+
